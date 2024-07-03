@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-interface Props {
+interface SeoProps {
     title?: string;
     description?: string;
 }
 
-export const Seo = ({title, description}: Props) => {
+export const Seo = ({title, description}: SeoProps) => {
     return (
         <Head>
             <title>{title}</title>

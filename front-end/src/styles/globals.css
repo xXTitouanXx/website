@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Define base styles */
+@layer base {
+    html {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+}
+
+/* Root color variables */
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
 }
 
+/* Dark mode color variables */
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
@@ -16,6 +28,7 @@
     }
 }
 
+/* Body styles */
 body {
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
@@ -25,8 +38,21 @@ body {
     ) rgb(var(--background-start-rgb));
 }
 
+/* Custom utility classes */
 @layer utilities {
     .text-balance {
         text-wrap: balance;
     }
+}
+
+a:hover {
+    @apply text-primary;
+}
+
+.animate, a, a:hover {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
