@@ -5,12 +5,14 @@ import {RiUser6Fill, RiUser6Line} from "react-icons/ri";
 import {Logo} from "@/ui/design-system/logo/logo";
 import {Avatar} from "@/ui/design-system/avatar/avatar";
 import {Navigation} from "@/ui/components/navigation/navigation";
+import {Footer} from "@/ui/components/navigation/footer";
 
 export default function Home() {
     return (
         <>
             <Seo title="Home" description="Home page"/>
             <Navigation/>
+            <Footer/>
         </>
     );
 }

@@ -17,7 +17,7 @@ interface TypographyProps {
         | "caption3"
         | "caption4";
     component?: "h1" | "h2" | "h3" | "h4" | "div" | "p" | "span";
-    theme?: "light" | "dark" | "black" | "gray";
+    theme?: "light" | "dark" | "black" | "gray" | "white";
     weight?: "regular" | "medium" | "semibold";
     className?: string;
     children: React.ReactNode;
