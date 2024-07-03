@@ -111,7 +111,7 @@ module.exports = {
                 },
             ],
             sm: [
-                "15",
+                "15px",
                 {
                     lineHeight: "23px",
                     letterSpacing: "-0.6px",
@@ -129,7 +129,7 @@ module.exports = {
             caption2: [
                 "18px",
                 {
-                    lineHeight: "20",
+                    lineHeight: "20px",
                     letterSpacing: "-0.3px",
                     fontWeight: "400",
                 },
@@ -153,7 +153,7 @@ module.exports = {
         },
         borderRadius: {
             DEFAULT: "10px",
-        }
+        },
         extend: {},
     },
     plugins: [],
