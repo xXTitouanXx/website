@@ -1,4 +1,5 @@
 import {AppLinks} from "@/types/app-links";
+import {RiGithubFill, RiInstagramFill, RiLinkedinFill} from "react-icons/ri";
 
 const footerApplicationLinks: AppLinks[] = [
     {
@@ -18,7 +19,7 @@ const footerApplicationLinks: AppLinks[] = [
     },
     {
         label: "Formations",
-        baseUrl: "https://www.linkedin.com/feed/",
+        baseUrl: "/#",
         type: "external",
     },
 ];
@@ -66,21 +67,24 @@ const footerInformationsLinks: AppLinks[] = [
         type: "internal",
     },
 ];
-const footerSocialNetworkLinks: AppLinks[] = [
+export const footerSocialNetworkLinks: AppLinks[] = [
     {
         label: "Linkedin",
-        baseUrl: "/#",
+        baseUrl: "https://www.linkedin.com/in/titouan-abbate-13ba10240/",
         type: "external",
+        icon: RiLinkedinFill,
     },
     {
         label: "GitHub",
-        baseUrl: "/#",
+        baseUrl: "https://github.com/xXTitouanXx",
         type: "external",
+        icon: RiGithubFill,
     },
     {
         label: "Instagram",
-        baseUrl: "/#",
+        baseUrl: "https://www.instagram.com/titouanabt/",
         type: "external",
+        icon: RiInstagramFill,
     },
 ];
 export const footerLinks = [

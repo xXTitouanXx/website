@@ -5,6 +5,7 @@ import {v4 as uuidv4} from "uuid";
 import {ActiveLink} from "@/ui/components/navigation/active-link";
 import {Footerlinks} from "@/types/app-links";
 import {LinkTypes} from "@/lib/link-type"
+import {SocialNetworkButton} from "@/ui/design-system/button/social-network-button";
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -26,11 +27,12 @@ export const Footer = () => {
             </Container>
             <Container className="pt-9 pb-11 space-y-11">
                 <hr className="text-gray-800"/>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-between">
                     <Typography variant="caption4" theme="gray">
                         {`Copyright © ${currentYear} | Propulsé par `}
-                        <a href="https://www.linkedin.com/feed/">Titouan Abbate</a>
+                        <a href="https://www.linkedin.com/in/titouan-abbate-13ba10240/">Titouan Abbate</a>
                     </Typography>
+                    <SocialNetworkButton theme="gray"/>
                 </div>
             </Container>
         </div>
