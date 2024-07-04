@@ -17,7 +17,7 @@ interface TypographyProps {
         | "caption3"
         | "caption4";
     component?: "h1" | "h2" | "h3" | "h4" | "div" | "p" | "span";
-    theme?: "secondary" | "primary" | "black" | "gray" | "white";
+    theme?: "secondary" | "primary" | "black" | "gray" | "white" | "danger" | "warning" | "success";
     weight?: "regular" | "medium" | "semibold";
     className?: string;
     children: React.ReactNode;
@@ -60,39 +60,48 @@ export const Typography = ({
         case "body-base":
             variantStyles = "text-base"
             break;
-       case "body-sm":
+        case "body-sm":
             variantStyles = "text-sm"
             break;
         case "caption1":
             variantStyles = "text-caption1"
             break;
-         case "caption2":
+        case "caption2":
             variantStyles = "text-caption2"
             break;
-         case "caption3":
+        case "caption3":
             variantStyles = "text-caption3"
             break;
-         case "caption4":
+        case "caption4":
             variantStyles = "text-caption4"
             break;
     }
     switch (theme) {
         case "primary":
-            colorStyles="text-primary"
+            colorStyles = "text-primary"
             break
         case "white":
-            colorStyles="text-white"
+            colorStyles = "text-white"
             break
         case "black":
-            colorStyles="text-gray"
+            colorStyles = "text-gray"
             break
         case "gray":
-            colorStyles="text-gray-700"
+            colorStyles = "text-gray-700"
             break
         case "secondary":
-            colorStyles="text-secondary"
+            colorStyles = "text-secondary"
+            break
+        case "danger":
+            colorStyles = "text-alert-danger"
+            break
+        case "warning":
+            colorStyles = "text-alert-warning"
+            break
+     case "success":
+            colorStyles = "text-alert-success"
             break
     }
     return <Component
-        className={clsx(variantStyles,colorStyles, weight === "medium" && "font-medium", className)}>{children}</Component>;
+        className={clsx(variantStyles, colorStyles, weight === "medium" && "font-medium", className)}>{children}</Component>;
 }

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 interface ButtonProps {
     size?: "small" | "medium" | "large";
-    variant?: "accent"        | "secondary"        | "outline"        | "disabled"        | "ico"|"succes"
+    variant?: "accent" | "secondary" | "outline" | "disabled" | "ico" | "succes"
     icon?: IconProps;
     iconTheme?: "accent" | "secondary" | "gray";
     iconPosition?: "left" | "right";
@@ -17,6 +17,8 @@ interface ButtonProps {
     baseUrl?: string;
     linkType?: LinkType;
     action?: Function;
+    type?: "button" | "submit";
+    fullWith?: boolean;
 }
 
 export const Button = ({
@@ -30,6 +32,8 @@ export const Button = ({
                            children,
                            baseUrl,
                            linkType = "internal",
+                           type = "button",
+                           fullWith,
                            action = () => {
                            }
                        }: ButtonProps) => {
@@ -76,8 +80,8 @@ export const Button = ({
             icoSize = 24;
             break
     }
-    const handleClick=()=>{
-        if (action){
+    const handleClick = () => {
+        if (action) {
             action
         }
     }
@@ -106,30 +110,31 @@ export const Button = ({
             </div>
         </>
     )
-    const buttonElement= (
+    const buttonElement = (
         <button
-            type="button"
+            type={type}
             className={clsx(
                 variantStyles,
                 sizeStyles,
                 icoSize,
                 isLoading && "cursor-wait",
+                fullWith && "w-full",
                 "relative animate"
             )}
             onClick={handleClick}
-            disabled={disabled}
+            disabled={disabled || isLoading ? true : false}
         >
             {buttonContent}
         </button>
     )
-    if (baseUrl){
+    if (baseUrl) {
         if (linkType === LinkTypes.EXTERNAL) {
             return (
                 <a href={baseUrl} target="_blank">
                     {buttonElement}
                 </a>
             )
-        }else {
+        } else {
             return (
                 <Link href={baseUrl}>{buttonElement}</Link>
             )

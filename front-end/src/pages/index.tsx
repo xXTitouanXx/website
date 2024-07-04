@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <>
             <Seo title="Home" description="Home page"/>
-            <Layout>
+            <Layout isDisplayBreadCrumbs={false}>
                 <LandingPageContainer/>
             </Layout>
         </>
