@@ -9,6 +9,7 @@ export default function App({Component, pageProps}: AppProps) {
             position="top-right"
             autoClose={8000}
             transition={Flip}
+            closeOnClick={true}
         />
         <Component {...pageProps} />
     </>;

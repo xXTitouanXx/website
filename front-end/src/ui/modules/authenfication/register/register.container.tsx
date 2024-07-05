@@ -5,6 +5,7 @@ import {fireBaseCreateUser} from "@/api/authentication";
 import {toast} from "react-toastify";
 import {useToggle} from "@/hooks/use-toggle";
 import {useRouter} from "next/router";
+import {firestoreCreateDocument} from "@/api/firestore";
 
 export const RegisterContainer = () => {
     const router = useRouter()
@@ -16,6 +17,17 @@ export const RegisterContainer = () => {
         setError,
         reset,
     } = useForm<RegisterFormFieldsType>();
+    const handleCreateUserDocument = async (collectionName: string, documentID: string, data: object) => {
+        const {error} = await firestoreCreateDocument(collectionName, documentID, data)
+        if (error) {
+            toast.error(error.message)
+            return
+        }
+        toast.success("Register user created successfully.")
+        setIsLoading(false)
+        reset()
+        router.push("/mon-espace")
+    }
     const handleCreateUserAuthentication = async ({
                                                       email,
                                                       password,
@@ -27,10 +39,14 @@ export const RegisterContainer = () => {
             toast.error(error.message)
             return
         }
-        toast.success("Register user created successfully.")
-        setIsLoading(false)
-        reset()
-        router.push("/mon-espace")
+        const userDocumentData = {
+            email: email,
+            hear: hear,
+            uid: data.uid,
+            creation_date: new Date(),
+
+        }
+        handleCreateUserDocument("users", data.uid, userDocumentData)
     }
     const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {
         const {password} = formData;
