@@ -7,7 +7,7 @@ import Link from "next/link";
 
 interface ButtonProps {
     size?: "small" | "medium" | "large";
-    variant?: "accent" | "secondary" | "outline" | "disabled" | "ico" | "succes"| "danger"
+    variant?: "accent" | "secondary" | "outline" | "disabled" | "ico" | "success" | "danger"
     icon?: IconProps;
     iconTheme?: "accent" | "secondary" | "gray";
     iconPosition?: "left" | "right";
@@ -16,7 +16,7 @@ interface ButtonProps {
     children?: React.ReactNode;
     baseUrl?: string;
     linkType?: LinkType;
-    action?: Function;
+    action?: () => void;
     type?: "button" | "submit";
     fullWith?: boolean;
 }
@@ -34,8 +34,7 @@ export const Button = ({
                            linkType = "internal",
                            type = "button",
                            fullWith,
-                           action = () => {
-                           }
+                           action
                        }: ButtonProps) => {
     let variantStyles: string = "", sizeStyles: string = "", icoSize: number = 0;
     switch (variant) {
@@ -51,7 +50,7 @@ export const Button = ({
         case "disabled":
             variantStyles = "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
             break
-        case "succes":
+        case "success":
             variantStyles = "bg-secondary hover:bg-secondary-400 text-white rounded";
             break
         case "danger":
@@ -85,7 +84,7 @@ export const Button = ({
     }
     const handleClick = () => {
         if (action) {
-            action
+            action();
         }
     }
     const buttonContent = (

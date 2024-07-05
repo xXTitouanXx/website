@@ -5,8 +5,13 @@ import {Typography} from "@/ui/design-system/typography/typography";
 import Link from "next/link";
 import React from "react";
 import {LoginForm} from "@/ui/modules/authenfication/login/login.form";
+import {FormType} from "@/types/form";
 
-export const LoginView = () => {
+interface LoginViewProps {
+    form: FormType
+}
+
+export const LoginView = ({form}: LoginViewProps) => {
     return (
         <Container className="grid grid-cols-2 gap-20 mb-32">
             <div className="flex items-center">
@@ -30,9 +35,11 @@ export const LoginView = () => {
                             </Typography>
                         </div>
                     </div>
-                    <div>
-                        <LoginForm/>
-                    </div>
+                    <LoginForm form={form}/>
+                    <Typography variant="caption4" component="span" theme="primary">
+                        <Link href="/connexion/mot-de-passe-oublie" className="flex justify-center">Mot de passe oublié
+                            ?</Link>
+                    </Typography>
                 </Box>
             </div>
         </Container>

@@ -23,11 +23,11 @@ export const BreadCrumbs = () => {
                         path !== lastSegment ? "text-gray-600" : "text-gray", "capitalize hover:text-gray animate"
                     )}
                 >
-                    {path !== "accueil" ? (path.replace(/-/g, " ")) : (<RiHome3Line/>)}
+                    {path !== "accueil" ? (path.replace(/-/g, " ")) : (<RiHome3Line className="inline -mt-1"/>)}
                 </Typography>
                 {
                     path !== lastSegment && (
-                        <Typography variant="caption2" component="span" className="ml-2 text-gray">
+                        <Typography variant="caption2" component="span" className="ml-2 text-gray-600">
                             /
                         </Typography>
                     )}
