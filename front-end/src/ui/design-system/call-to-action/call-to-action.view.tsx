@@ -13,7 +13,7 @@ export const CallToActionView = () => {
                         javhn dbfvoa bvpianvfa ...
                     </Typography>
                     <div>
-                        <Button variant="succes" baseUrl="/#" linkType={LinkTypes.EXTERNAL}>
+                        <Button variant="success" baseUrl="/#" linkType={LinkTypes.EXTERNAL}>
                             ovarbovaq
                         </Button>
                     </div>
