@@ -5,19 +5,12 @@ import {useToggle} from "@/hooks/use-toggle";
 import {fireBaseSignUser} from "@/api/authentication";
 import {toast} from "react-toastify";
 import {useRouter} from "next/router";
-import {useEffect} from "react";
 
 
 export const LoginContainer = () => {
     const router = useRouter()
     const {value: isLoading, setValue: setIsLoading, toggle} = useToggle()
-    useEffect(()=>{
-        // onAuthStateChanged(auth, (user)=>{
-        //     if (user){
-        //         const uid = user.uid;
-        //     }
-        // })
-    })
+
     const {
         handleSubmit,
         formState: {errors},

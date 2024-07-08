@@ -1,7 +1,7 @@
 import {RegisterView} from "@/ui/modules/authenfication/register/register.view";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {RegisterFormFieldsType} from "@/types/form";
-import {fireBaseCreateUser} from "@/api/authentication";
+import {fireBaseCreateUser, sendEmailVerificationProcedure} from "@/api/authentication";
 import {toast} from "react-toastify";
 import {useToggle} from "@/hooks/use-toggle";
 import {useRouter} from "next/router";
@@ -26,6 +26,7 @@ export const RegisterContainer = () => {
         toast.success("Register user created successfully.")
         setIsLoading(false)
         reset()
+        sendEmailVerificationProcedure()
         router.push("/mon-espace")
     }
     const handleCreateUserAuthentication = async ({
