@@ -12,19 +12,19 @@ interface Props {
 export const Session = ({children, sessionStatus}: Props) => {
     const {authUserIsLoading, authUser} = useAuth()
     const router = useRouter()
-    const onBoardingIsCompleted = authUser?.userDocument?.onBoardingIsCompleted
-    const shouldRedirectToOnBoarding = () => {
-        return !authUserIsLoading && authUser && !onBoardingIsCompleted && router.asPath !== "/onBoarding"
+    const onboardingIsCompleted = authUser?.userDocument?.onboardingIsCompleted
+    const shouldRedirectToOnboarding = () => {
+        return !authUserIsLoading && authUser && !onboardingIsCompleted && router.asPath !== "/onboarding"
     }
-    const shouldNotRedirectToOnBoarding = () => {
-        return !authUserIsLoading && authUser && onBoardingIsCompleted && router.asPath === "/onBoarding"
+    const shouldNotRedirectToOnboarding = () => {
+        return !authUserIsLoading && authUser && onboardingIsCompleted && router.asPath === "/onboarding"
     }
 
-    if (shouldRedirectToOnBoarding()) {
-        router.push("/onBoarding")
+    if (shouldRedirectToOnboarding()) {
+        router.push("/onboarding")
         return <ScreenSpinner/>
     }
-    if (shouldNotRedirectToOnBoarding()) {
+    if (shouldNotRedirectToOnboarding()) {
         router.push("/mon-espace")
         return <ScreenSpinner/>
     }
