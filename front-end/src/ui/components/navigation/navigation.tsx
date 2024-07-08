@@ -5,12 +5,21 @@ import {Button} from "@/ui/design-system/button/button";
 import {ActiveLink} from "@/ui/components/navigation/active-link";
 import useFirebaseAuth from "@/hooks/use-firebase-auth";
 import {useAuth} from "@/context/AuthUserContext";
+import {AccountAvatarNavigationLink} from "@/ui/components/navigation/account-avatar-link";
 
 interface NavigationProps {
 }
 
 export const Navigation = ({}: NavigationProps) => {
     const {authUser} = useAuth()
+    const authenticatficationSystem = (
+        <div className="flex items-center gap-2">
+            <Button baseUrl="/connexion" size="small">Connexion</Button>
+            <Button baseUrl="/connexion/inscription" size="small" variant="secondary">
+                Rejoindre
+            </Button>
+        </div>
+    )
     return (
         <div className="border-b-2 border-gray-400">
             <Container className="flex items-center justify-between py-1.5 gap-7">
@@ -30,12 +39,7 @@ export const Navigation = ({}: NavigationProps) => {
                         <ActiveLink href="/formation">Formations</ActiveLink>
                         <ActiveLink href="/contact">Contacts</ActiveLink>
                     </Typography>
-                    <div className="flex items-center gap-2">
-                        <Button baseUrl="/connexion" size="small">Connexion</Button>
-                        <Button baseUrl="/connexion/inscription" size="small" variant="secondary">
-                            Rejoindre
-                        </Button>
-                    </div>
+                    {!authUser ? authenticatficationSystem : <AccountAvatarNavigationLink/>}
                 </div>
             </Container>
         </div>
