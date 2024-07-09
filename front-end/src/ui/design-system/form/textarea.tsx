@@ -1,10 +1,10 @@
-import clsx from "clsx";
 import {Typography} from "@/ui/design-system/typography/typography";
+import clsx from "clsx";
 
-interface IProps {
+interface Props {
     isLoading: boolean
     placeholder: string
-    type?: "text" | "email" | "password"
+    rows?: number
     register: any
     errors: any
     errorMessage?: string
@@ -14,19 +14,18 @@ interface IProps {
     label?: string
 }
 
-export const Input = ({
-                          isLoading,
-                          placeholder,
-                          type = "text",
-                          register,
-                          errors,
-                          errorMessage = "Ce champ est obligatoire !",
-                          id,
-                          required = true,
-                          isAutoComplete = false,
-                          label,
-                      }: IProps) => {
-
+export const Textarea = ({
+                             isLoading,
+                             placeholder,
+                             rows = 5,
+                             register,
+                             errors,
+                             errorMessage = "Ce champ est obligatoire !",
+                             id,
+                             required = true,
+                             isAutoComplete = false,
+                             label,
+                         }: Props) => {
     return (
         <div className="space-y-2">
             {label && (<Typography
@@ -35,13 +34,13 @@ export const Input = ({
                 theme={errors[id] ? "danger" : "gray"}
             >
                 {label}</Typography>)}
-            <input
-                type={type}
+            <textarea
+                rows={rows}
                 placeholder={placeholder}
                 className={clsx(
-                    isLoading && "cursor-not-allowed",
+                    isLoading ? "bg-gray-300 focus:bg-gray-300 cursor-not-allowed" : "bg-white",
                     errors[id] ? "placeholder-alert-danger text-alert-danger" : "placeholder-gray-600",
-                    "w-full p-4 font-light border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary "
+                    "w-full p-4 font-light border rounded focus:ring-1 focus:ring-primary border-gray-400"
                 )}
                 disabled={isLoading}
                 {...register(id, {

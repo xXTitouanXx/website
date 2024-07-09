@@ -1,3 +1,9 @@
+export interface OnboardingProfileFormFieldsType {
+    displayName: string
+    expertise: string
+    biography: string
+}
+
 export interface RegisterFormFieldsType {
     email: string
     password: string
