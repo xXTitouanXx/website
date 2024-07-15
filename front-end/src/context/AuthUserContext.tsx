@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useContext } from "react";
-import { UserDocument } from "@/types/user";
+import {createContext, ReactNode, useContext} from "react";
+import {UserDocument} from "@/types/user";
 import useFirebaseAuth from "@/hooks/use-firebase-auth";
 
 const init = {
@@ -23,14 +23,17 @@ interface AuthUserContextType {
         userDocument: UserDocument;
     };
     authUserIsLoading: boolean;
+    reloadAuthUserData: () => void
 }
 
 const authUserContext = createContext<AuthUserContextType>({
     authUser: init,
     authUserIsLoading: true,
+    reloadAuthUserData: () => {
+    },
 });
 
-export function AuthUserProvider({ children }: { children: ReactNode }) {
+export function AuthUserProvider({children}: { children: ReactNode }) {
     const auth = useFirebaseAuth();
 
     return (
@@ -46,6 +49,7 @@ export function AuthUserProvider({ children }: { children: ReactNode }) {
                     userDocument: UserDocument;
                 },
                 authUserIsLoading: auth.authUserIsLoading,
+                reloadAuthUserData: auth.reloadAuthUserData,
             }}
         >
             {children}

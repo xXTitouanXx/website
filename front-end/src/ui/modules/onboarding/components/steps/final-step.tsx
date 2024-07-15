@@ -14,7 +14,7 @@ import {toast} from "react-toastify";
 // import { Vortex, Crossfire, Snow, Realistic, Explosion, Pride, Photons, Fireworks } from "react-canvas-confetti";
 
 export const FinalStep = ({isFinalStep}: BaseComponentProps) => {
-    const {authUser} = useAuth();
+    const {authUser, reloadAuthUserData} = useAuth();
     const {value: isLoading, toggle} = useToggle();
     const refAnimationInstance = useRef<((opts: any) => void) | null>(null);
 
@@ -69,11 +69,12 @@ export const FinalStep = ({isFinalStep}: BaseComponentProps) => {
             onboardingIsCompleted: true,
         }
         const {error} = await firestoreUpdateDocument("users", authUser.uid, data)
-        if (error){
+        if (error) {
             toggle()
             toast.error(error.message)
             return
         }
+        reloadAuthUserData()
         toggle()
     };
 

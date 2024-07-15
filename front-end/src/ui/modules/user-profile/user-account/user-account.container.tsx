@@ -1,9 +1,7 @@
-import {Button} from "@/ui/design-system/button/button";
-import {fireBaseLogoutUser} from "@/api/authentication";
-import {toast} from "react-toastify";
+import {useAuth} from "@/context/AuthUserContext";
 
 export const UserAccountContainer = () => {
-
+const {authUser}=useAuth()
     return (
         <div>
         </div>
