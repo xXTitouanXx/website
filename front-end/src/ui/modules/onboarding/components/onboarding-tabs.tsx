@@ -14,7 +14,7 @@ export const OnboardingTabs = ({
     return (
         <div className="relative inline-block">
             <div className="flex items-center space-x-6">
-                {tabs && tabs.map(                    (tab) => (
+                {tabs && tabs.map((tab) => tab.id !== tabs.length && (
                         <div key={tab.id} className={clsx(
                             getCurrentStep && getCurrentStep()?.id === tab.id ? "border-primary" : "border-gray-400",
                             "relative z-10 py-2.5 border-b-[2px]")}>

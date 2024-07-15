@@ -3,6 +3,8 @@ import {useState} from "react";
 import {WelcomeSteps} from "@/ui/modules/onboarding/components/steps/welcome-step";
 import {onboardingStepListInterface} from "@/types/onboarding/steps-list";
 import {ProfileSteps} from "@/ui/modules/onboarding/components/steps/profile-step";
+import {AvatarSteps} from "@/ui/modules/onboarding/components/steps/avatar-step";
+import {FinalStep} from "@/ui/modules/onboarding/components/steps/final-step";
 
 export const OnboardingContainer = () => {
     const [currentStep, setCurrentStep] = useState<number>(1);
@@ -25,7 +27,14 @@ export const OnboardingContainer = () => {
             id: 3,
             label: "Avatar",
             component: {
-                step: ProfileSteps,
+                step: AvatarSteps,
+            },
+        },
+        {
+            id: 4,
+            label: "Dernière étape",
+            component: {
+                step: FinalStep,
             },
         }
     ]
