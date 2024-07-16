@@ -27,7 +27,7 @@ export const Layout = ({children, isDisplayBreadCrumbs = true, withSideBar, sess
                         <CallToActionsSideBarContribution/>
                         <CallsToActionsSideBarSlack/>
                     </div>
-                    <div className="col-span-3 ">{children}</div>
+                    <div className="col-span-9 ">{children}</div>
                 </div>
             </Container>
         )

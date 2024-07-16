@@ -8,13 +8,15 @@ interface IProps {
     imagePreview: string | ArrayBuffer | null
     uploadProgress: number
     isLoading: boolean
+    variant?: "primary" | "outline"
 }
 
 export const UploadAvatar = ({
                                  handleImageSelect,
                                  imagePreview,
                                  uploadProgress,
-                                 isLoading
+                                 isLoading,
+                                 variant = "primary"
                              }: IProps) => {
     const {authUser} = useAuth()
     const uploadProgressBarStyle = `fixed left-0 top-0 w-full h-1 bg-secondary animate ${uploadProgress > 0 ? "" : "hidden"}`
@@ -24,7 +26,9 @@ export const UploadAvatar = ({
             <label
                 className={clsx(
                     isLoading ? "cursor-not-allowed" : "cursor-pointer",
-                    "inline-block bg-primary hover:bg-primary-400 text-white rounded px-[18px] py-[15px] text-caption2 font-medium animate"
+                    variant === "primary" && "bg-primary hover:bg-primary-400 text-white",
+                    variant === "outline" && "bg-white hover:bg-gray-400/50 border border-gray-500 text-gray-800",
+                    "inline-block rounded px-[18px] py-[15px] text-caption2 font-medium animate"
                 )}>
                 <div className="flex items-center gap-2">
                     <RiCamera2Fill/>

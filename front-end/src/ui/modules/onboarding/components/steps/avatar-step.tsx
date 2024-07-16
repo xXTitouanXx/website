@@ -40,7 +40,6 @@ export const AvatarSteps = ({
             }
             reader.readAsDataURL(file)
         }
-
     }
     const updateUserDocument = async (photoURL: string) => {
         const body = {

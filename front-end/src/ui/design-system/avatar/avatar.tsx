@@ -23,7 +23,7 @@ export const Avatar = ({size = "medium", src, alt, isLoading}: AvatarProps) => {
             sizeStyles = "w-[50px] h-[50px]";
             break
         case "extra-large":
-            sizeStyles = "w-[130px] h-[130px]";
+            sizeStyles = "w-[90px] h-[90px]";
             break
     }
     return (

@@ -1,4 +1,10 @@
-export interface OnboardingProfileFormFieldsType {
+export interface UserProfileFormFieldsType {
+    displayName: string
+    expertise: string
+    biography: string
+    github: string
+    linkedin: string
+}export interface OnboardingProfileFormFieldsType {
     displayName: string
     expertise: string
     biography: string
